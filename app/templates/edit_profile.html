@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+<h2 class="title">✧ edit your profile ✧</h2>
+<h2 class="subtitle">enter new data:</h2>
+<form method="post" class="buttons">
+  <div>
+    <label>/ name:</label>
+    <input
+      type="text"
+      placeholder="{{current_user_name}}"
+      name="name"
+      value="{{name}}"
+    />
+  </div>
+  <div>
+    <label> / email:</label>
+    <input
+      type="text"
+      placeholder="{{current_user_email}}"
+      name="email"
+      value="{{email}}"
+    />
+  </div>
+  <button type="submit" name="update" class="update-btn">update profile</button>
+  {% if error %}
+  <ul>
+    <li>{{error}}</li>
+  </ul>
+  {% endif %}
+</form>
+{% endblock %}

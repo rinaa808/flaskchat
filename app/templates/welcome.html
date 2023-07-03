@@ -1,0 +1,14 @@
+{% extends "not_authorized_base.html" %}
+
+{% block content %}
+<h1 class="title">
+  // welcome to lix.ie -
+    chat for you and your friends //
+</h1>
+<h2 class="subtitle">
+  → you can create your own chat or join an already created one
+</h2>
+<p>
+  ! but first <u><a href="{{ url_for('auth.signup') }}">register</a></u> or <u><a href="{{ url_for('auth.login') }}">log in</a></u> !
+<p>
+{% endblock %}

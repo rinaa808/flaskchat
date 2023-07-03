@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block content %}
+<h2 class="title">// you can create your own chat or join an already created one</h2>
+<h2 class="title">// just enter the chat details ↓</h2>
+<form method="post" class="buttons">
+  <div>
+    <label>/ name:</label>
+    <input
+      type="text"
+      placeholder="pick a name"
+      name="name"
+      value="{{name}}"
+    />
+  </div>
+  <div class="join">
+    <label> / chat code:</label>
+    <input type="text" placeholder="chat code" name="code" value="{{code}}" />
+    <button type="submit" name="join">join a chat</button>
+  </div>
+  <button type="submit" name="create" class="create-btn">create a chat</button>
+  <button type="submit" name="join_general_chat" class="create-btn">join a general chat</button>
+  {% if error %}
+  <ul>
+    <li>{{error}}</li>
+  </ul>
+  {% endif %}
+</form>
+<h2 class="subtitle">
+    <u>tips:</u>
+    <br />
+    → you can leave the "name" field empty, and we will use your cool username - {{ username }}
+    <br />
+    → chat code example: AAAA (4 capital letters)
+    <br />
+    → for your own chat you can leave the "room code" field empty, and we will generate a random code
+</h2>
+{% endblock %}
