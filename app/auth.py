@@ -47,6 +47,15 @@ def signup_post():
     if not email or not name or not password:
         return render_template("signup.html", error="please enter a details")
 
+    if len(email) > 50:
+        return render_template("signup.html", error="! email length is no more than 50 characters !")
+
+    if len(password) > 20:
+        return render_template("signup.html", error="! password length is no more than 20 characters !")
+
+    if len(name) > 50:
+        return render_template("signup.html", error="! name length is no more than 50 characters !")
+
     new_user = User(email=email, name=name, password=generate_password_hash(password, method='scrypt'))
 
     db.session.add(new_user)
