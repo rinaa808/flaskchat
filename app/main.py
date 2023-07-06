@@ -81,6 +81,18 @@ def edit_user():
                                        error="Please enter a new name or email.",
                                        email=email, name=name)
 
+            if len(name) > 50:
+                return render_template("edit_profile.html",
+                                       current_user_name=current_user.name,
+                                       current_user_email=current_user.email,
+                                       error="! name length is no more than 50 characters !")
+
+            if len(email) > 50:
+                return render_template("edit_profile.html",
+                                       current_user_name=current_user.name,
+                                       current_user_email=current_user.email,
+                                       error="! email length is no more than 50 characters !")
+
             if not name:
                 user.name = current_user.name
             else:
